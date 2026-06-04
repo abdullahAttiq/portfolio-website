@@ -448,23 +448,31 @@ h2.section-title {
   background-size: cover;
   background-position: 78% 32%;
   background-repeat: no-repeat;
-  filter: saturate(0.72) contrast(1.04) brightness(0.92);
-  /* Zoom the subject larger while keeping them anchored to the right */
+  /* Vibrant, lifted — not dim */
+  filter: saturate(1.18) contrast(1.1) brightness(1.06);
+  /* Zoom the subject larger, anchored right; higher origin drops the head
+     below the top meta row so it doesn't crowd the "Edition" label */
   transform: scale(1.24);
-  transform-origin: 82% 34%;
+  transform-origin: 82% 22%;
 }
 .hero-a .hero-bg::after {
   content: "";
   position: absolute;
   inset: 0;
   background:
+    /* Top band keeps the meta row (Index / Coordinates / Edition) legible */
+    linear-gradient(180deg,
+      oklch(0.16 0.04 35 / 0.6) 0%,
+      oklch(0.16 0.04 35 / 0.15) 16%,
+      transparent 30%),
+    /* Left stays dark for the title; clears toward the right so the subject pops */
     linear-gradient(90deg,
-      oklch(0.16 0.04 35 / 0.96) 0%,
-      oklch(0.16 0.04 35 / 0.88) 28%,
-      oklch(0.16 0.04 35 / 0.55) 50%,
-      oklch(0.16 0.04 35 / 0.25) 72%,
-      oklch(0.16 0.04 35 / 0.15) 100%),
-    radial-gradient(ellipse at 30% 60%, transparent 0%, rgba(0,0,0,0.45) 100%);
+      oklch(0.16 0.04 35 / 0.94) 0%,
+      oklch(0.16 0.04 35 / 0.78) 30%,
+      oklch(0.16 0.04 35 / 0.38) 56%,
+      oklch(0.16 0.04 35 / 0.08) 80%,
+      oklch(0.16 0.04 35 / 0) 100%),
+    radial-gradient(ellipse at 24% 55%, transparent 38%, rgba(0,0,0,0.22) 100%);
   pointer-events: none;
 }
 .hero-a .hero-title {
@@ -490,6 +498,8 @@ h2.section-title {
 }
 .hero-a .hero-meta .col span:first-child { color: rgba(253,246,236,0.6); }
 .hero-a .hero-meta .col span:last-child { color: #fdf6ec; }
+/* Keep the meta readable over the brighter image */
+.hero-a .hero-meta .col span { text-shadow: 0 1px 14px rgba(0,0,0,0.6); }
 .hero-a .scroll-cue { color: #fdf6ec; }
 .hero-a .scroll-cue .line { background: rgba(253,246,236,0.5); }
 /* Hero content always visible — above the fold */
