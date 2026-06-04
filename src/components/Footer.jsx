@@ -9,9 +9,9 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-big">
-        <a href={`mailto:${site.email}`}>
+        <TransitionLink to="/contact">
           {footer.bigLinkText} <span className="arrow">↗</span>
-        </a>
+        </TransitionLink>
       </div>
 
       <div className="footer-grid">
@@ -31,7 +31,14 @@ export default function Footer() {
         <div className="footer-col">
           <div className="footer-col-label">Elsewhere</div>
           {footer.social.map((item) => (
-            <a key={item.label} href={item.href}>{item.label}</a>
+            <a
+              key={item.label}
+              href={item.href}
+              target={item.href !== '#' ? '_blank' : undefined}
+              rel={item.href !== '#' ? 'noreferrer' : undefined}
+            >
+              {item.label}
+            </a>
           ))}
         </div>
 

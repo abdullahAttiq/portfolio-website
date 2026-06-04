@@ -26,7 +26,10 @@ export default function PageTransition() {
       clearTimeout(t1);
       clearTimeout(t2);
     };
-  }, [location.pathname]);
+    // Keyed on location.key so the cover is reliably reset after ANY navigation
+    // (not just pathname changes) — prevents the curtain ever sticking as a
+    // black overlay.
+  }, [location.key]);
 
   return <div ref={coverRef} className="page-cover" />;
 }

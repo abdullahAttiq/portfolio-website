@@ -12,7 +12,6 @@ export default function Contact() {
   const socials = [
     { label: 'GitHub', href: site.socials.github },
     { label: 'LinkedIn', href: site.socials.linkedin },
-    { label: 'Instagram', href: site.socials.instagram },
     { label: 'X / Twitter', href: site.socials.twitter },
   ];
 
